@@ -1,0 +1,52 @@
+/* ================= AUDIO HEADERS ================= */
+ #include "checkin_success.h"
+ #include "checkout_success.h"
+ #include "enrollment_success.h"
+ #include "verification_invalid.h"
+#include "verification_valid.h"
+
+/* ================= AUDIO CONFIG ================= */
+#define AUDIO_PIN 25
+#define SAMPLE_RATE 16000
+#define SAMPLE_DELAY_US (1000000 / SAMPLE_RATE)
+
+/* ================= AUDIO FUNCTION ================= */
+void playAudio(const int16_t* audio, unsigned int length) {
+  for (unsigned int i = 0; i < length; i++) {
+    // Convert signed 16-bit PCM to 8-bit DAC value (0–255)
+    uint8_t dacValue = (audio[i] >> 8) + 128;
+    dacWrite(AUDIO_PIN, dacValue);
+    delayMicroseconds(SAMPLE_DELAY_US/1.5);
+  }
+}
+
+/* ================= SETUP ================= */
+void setup() {
+  pinMode(AUDIO_PIN, OUTPUT);
+
+  delay(1000);  // Small startup delay
+
+  
+}
+
+/* ================= LOOP ================= */
+void loop() {
+  // Nothing here
+  delay(1000);
+  playAudio(verification_valid, verification_valid_len);
+  // Play any one file for testing
+  delay(1000);
+   playAudio(checkin_success, checkin_success_len);
+
+   delay(1000);
+   playAudio(checkout_success, checkout_success_len);
+
+   delay(1000);
+   playAudio(enrollment_success, enrollment_success_len);
+
+   delay(1000);
+ playAudio(verification_valid, verification_valid_len);
+
+  delay(1000);
+  playAudio(verification_invalid, verification_invalid_len);
+}
