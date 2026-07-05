@@ -1,6 +1,7 @@
 // Full Working Sketch — Touch area = full key cell, fixed touch logic
 // (Only touch handling logic changed / clarified; rest kept as in your working project)
 
+
 #include <Arduino.h>
 #include <Adafruit_Fingerprint.h>
 #include <TFT_eSPI.h>
