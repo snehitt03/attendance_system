@@ -4,7 +4,6 @@
 // Image Size     : 55x55 pixels
 // Memory usage   : 6050 bytes
 
-
 #if defined(__AVR__)
     #include <avr/pgmspace.h>
 #elif defined(__PIC32MX__)
