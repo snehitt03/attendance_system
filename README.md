@@ -2,6 +2,9 @@
 
 > A full-stack, touchscreen biometric attendance solution built on the ESP32 platform — fingerprint scanning, real-time cloud sync via Google Sheets, and a professional HR dashboard powered by Google Apps Script.
 
+Watch the demo here:
+https://snehitt03.github.io/attendance_system/
+
 <div align="center">
     <img src="Block_Diagram.png" alt="Signal and Data flow in the System" width="600">
     <p><em>Figure 1: Workflow of the System</em></p>
