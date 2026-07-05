@@ -32,7 +32,7 @@ const String ADMIN_DEFAULT_PASS = "1234";
 /* ================= WIFI / SERVER ================= */
 const char* WIFI_SSID = "wifi_name";
 const char* WIFI_PASS = "password";
-const char* SERVER_URL = "https://script.google.com/macros/s/AKfycbyc-KOOsdFqDPcBlk1-pA9r2pmYWqSq8a5HqYIvoX_W0mdNBsLEo3VBJk2tuWyFuHwX/exec";
+const char* SERVER_URL = "https://script.google.com/macros/s/fycbyc-KOOsdFqDPcBlk1-pA9r2pmYWqSq8a5HqYIvoX_W0mdNBsLEo3VBJk2tuWyFuHwX/exec";
 
 /* ================= FINGERPRINT ================= */
 HardwareSerial mySerial(2);
