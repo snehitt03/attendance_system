@@ -1,4 +1,4 @@
-# QuantumCLK Biometric Attendance System
+# Biometric Attendance System
 
 > A full-stack, touchscreen biometric attendance solution built on the ESP32 platform — fingerprint scanning, real-time cloud sync via Google Sheets, and a professional HR dashboard powered by Google Apps Script.
 
@@ -26,7 +26,6 @@
 - [Enroll / Delete Flow](#enroll--delete-flow)
 - [Getting Started](#getting-started)
 - [Troubleshooting](#troubleshooting)
-- [License](#license)
 
 ---
 
@@ -57,60 +56,60 @@ A separate Google Apps Script web application consumes the same spreadsheet and 
 ┌─────────────────────────────────────────────────────────────────┐
 │                        ESP32 DEVICE                             │
 │                                                                 │
-│  ┌─────────────┐   UART    ┌──────────────────┐                │
-│  │ Fingerprint │◄─────────►│  Adafruit_       │                │
-│  │  Sensor     │           │  Fingerprint lib  │                │
-│  └─────────────┘           └────────┬─────────┘                │
+│  ┌─────────────┐   UART    ┌──────────────────┐                 │
+│  │ Fingerprint │◄─────────►│  Adafruit_       │                 │
+│  │  Sensor     │           │  Fingerprint lib │                 │
+│  └─────────────┘           └────────┬─────────┘                 │
 │                                     │                           │
-│  ┌─────────────┐   SPI     ┌────────▼─────────┐                │
-│  │  XPT2046    │◄─────────►│   TFT_eSPI /     │                │
-│  │ Touchscreen │           │   TFT Display     │                │
-│  └─────────────┘           └────────┬─────────┘                │
+│  ┌─────────────┐   SPI     ┌────────▼─────────┐                 │
+│  │  XPT2046    │◄─────────►│   TFT_eSPI /     │                 │
+│  │ Touchscreen │           │   TFT Display    │                 │
+│  └─────────────┘           └────────┬─────────┘                 │
 │                                     │                           │
-│  ┌─────────────┐           ┌────────▼─────────┐                │
-│  │  DAC GPIO25 │           │   Arduino Loop   │                │
-│  │  (Audio)    │           │   State Machine   │                │
-│  └─────────────┘           └────────┬─────────┘                │
+│  ┌─────────────┐           ┌────────▼─────────┐                 │
+│  │  DAC GPIO25 │           │   Arduino Loop   │                 │
+│  │  (Audio)    │           │   State Machine  │                 │
+│  └─────────────┘           └────────┬─────────┘                 │
 │                                     │                           │
-│  ┌─────────────┐           ┌────────▼─────────┐                │
-│  │  NVS Flash  │◄─────────►│  Preferences     │                │
-│  │  (Users DB) │           │  (Local Storage)  │                │
-│  └─────────────┘           └────────┬─────────┘                │
+│  ┌─────────────┐           ┌────────▼─────────┐                 │
+│  │  NVS Flash  │◄─────────►│  Preferences     │                 │
+│  │  (Users DB) │           │  (Local Storage) │                 │
+│  └─────────────┘           └────────┬─────────┘                 │
 │                                     │  HTTPS POST               │
-└─────────────────────────────────────┼─────────────────────────┘
+└─────────────────────────────────────┼───────────────────────────┘
                                       │
                               ┌───────▼────────┐
-                              │  Wi-Fi / HTTPS  │
+                              │  Wi-Fi / HTTPS │
                               └───────┬────────┘
                                       │
               ┌───────────────────────▼────────────────────────┐
-              │          Google Apps Script (Script 1)          │
-              │              Biometric Web App                   │
-              │   doPost() — ENROLL / CHECK_IN / CHECK_OUT /    │
-              │              DELETE                              │
+              │          Google Apps Script (Script 1)         │
+              │              Biometric Web App                 │
+              │   doPost() — ENROLL / CHECK_IN / CHECK_OUT /   │
+              │              DELETE                            │
               └───────────────────────┬────────────────────────┘
                                       │  Read / Write
                               ┌───────▼────────┐
-                              │  Google Sheets  │
-                              │                 │
-                              │  • USERS        │
-                              │  • ATTENDANCE   │
-                              │    _DAILY       │
-                              │  • ATTENDANCE   │
-                              │    _LOG         │
-                              │  • LAST_ENTRY   │
-                              │  • HOLIDAYS     │
+                              │  Google Sheets │
+                              │                │
+                              │  • USERS       │
+                              │  • ATTENDANCE  │
+                              │    _DAILY      │
+                              │  • ATTENDANCE  │
+                              │    _LOG        │
+                              │  • LAST_ENTRY  │
+                              │  • HOLIDAYS    │
                               └───────┬────────┘
                                       │  Read
               ┌───────────────────────▼────────────────────────┐
-              │          Google Apps Script (Script 2)          │
-              │              HR Dashboard Web App               │
-              │                                                  │
-              │  • Active / Past employee lists                  │
-              │  • Monthly & weekly statistics                   │
-              │  • Attendance % per employee                     │
-              │  • PDF report generation + email                 │
-              │  • Holiday calendar editor                       │
+              │          Google Apps Script (Script 2)         │
+              │              HR Dashboard Web App              │
+              │                                                │
+              │  • Active / Past employee lists                │
+              │  • Monthly & weekly statistics                 │
+              │  • Attendance % per employee                   │
+              │  • PDF report generation + email               │
+              │  • Holiday calendar editor                     │
               └────────────────────────────────────────────────┘
 ```
 
@@ -424,11 +423,3 @@ git clone https://github.com/your-username/QuantumCLK-Attendance.git
 | Audio distorted | Sample rate mismatch | Confirm `.wav` is 16 kHz mono 16-bit before converting |
 
 ---
-
-## License
-
-This project is released under the MIT License. See `LICENSE` for details.
-
----
-
-*Built with ❤️ by QuantumCLK Technologies*
